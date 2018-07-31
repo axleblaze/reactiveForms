@@ -13,16 +13,16 @@ export class NameEditorComponent implements OnInit {
 
     passwordcheck(){
       if (this.profileForm.value.password !== this.profileForm.value.confirmpassword) {
-        console.log("False");
+        //console.log("False");
       }else{
-        console.log("True");
+        //console.log("True");
       }
     }
 
 submitfxn()
 {
   localStorage.setItem("data",JSON.stringify(this.profileForm.value));
-  this.route.navigate(["/edit"]);
+  this.route.navigate(["/display"]);
 }
 
   constructor(private route:Router) {

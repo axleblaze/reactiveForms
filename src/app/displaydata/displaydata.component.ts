@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./displaydata.component.css']
 })
 export class DisplaydataComponent implements OnInit {
-
-  constructor() { }
+  user;
+  constructor() { 
+    this.user = JSON.parse(localStorage.getItem('data'));
+  }
 
   ngOnInit() {
   }
 
+
+  
 }

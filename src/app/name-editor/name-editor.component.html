@@ -55,7 +55,7 @@
  <div class="form-group">
  <label>
   Password: <br/> <br/>
-  <input type="text" formControlName="password" >
+  <input type="password" formControlName="password" >
   <span *ngIf="!profileForm.controls['password'].valid">*</span> 
 </label>
 </div>
@@ -65,7 +65,7 @@
  <div class="form-group">
  <label>
   Confirm Password:<br/> <br/> 
-  <input type="text" formControlName="confirmpassword" (keyup)="passwordcheck()">
+  <input type="password" formControlName="confirmpassword" (keyup)="passwordcheck()">
   <span *ngIf="!profileForm.controls['confirmpassword'].valid">*</span> 
 </label>
 </div> 
