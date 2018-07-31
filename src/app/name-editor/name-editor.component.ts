@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-name-editor',
@@ -8,9 +9,23 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class NameEditorComponent implements OnInit {
   
-    profileForm:FormGroup
+    profileForm:FormGroup;
 
-  constructor() {
+    passwordcheck(){
+      if (this.profileForm.value.password !== this.profileForm.value.confirmpassword) {
+        console.log("False");
+      }else{
+        console.log("True");
+      }
+    }
+
+submitfxn()
+{
+  localStorage.setItem("data",JSON.stringify(this.profileForm.value));
+  this.route.navigate(["/edit"]);
+}
+
+  constructor(private route:Router) {
     
       this.profileForm = new FormGroup({
       
