@@ -1,0 +1,70 @@
+
+<form [formGroup]="profileForm">
+
+<label>
+  First Name: 
+  <input type="text" formControlName="firstname">
+  <span *ngIf="!profileForm.controls['firstname'].valid">*</span>
+ </label>
+ <br>
+ <br>
+ <br>
+ <label>
+  Last Name: 
+  <input type="text" formControlName="lastname">
+  <span *ngIf="!profileForm.controls['lastname'].valid">*</span> 
+</label>
+ <br>
+ <br>
+ <br>
+ <label>
+  Email:
+   <input type="text" formControlName="email">
+   <span *ngIf="!profileForm.controls['email'].valid">*</span>
+ </label>
+ <br>
+ <br>
+ <br>
+ <label>
+  Gender: 
+  <input type="text" formControlName="gender">
+  <span *ngIf="!profileForm.controls['gender'].valid">*</span>
+</label>
+<br>
+ <br>
+ <br>
+<label>
+  Contact Number: 
+  <input type="text" formControlName="contact">
+   <span *ngIf="!profileForm.controls['contact'].valid">*</span>
+</label>
+ <br>
+ <br>
+ <br>
+ <label>
+  Password: 
+  <input type="text" formControlName="password">
+  <span *ngIf="!profileForm.controls['password'].valid">*</span> 
+</label>
+ <br>
+ <br>
+ <br>
+ <label>
+  Confirm Password: 
+  <input type="text" formControlName="confirmpassword">
+  <span *ngIf="!profileForm.controls['confirmpassword'].valid">*</span> 
+</label>
+ <br>
+ <br>
+ <br>
+ <label>
+  Employee ID:
+   <input type="text" formControlName="empid">
+   <span *ngIf="!profileForm.controls['empid'].valid">*</span>
+  </label>
+</form>
+<br>
+ <br>
+ <br>
+<button type="submit" [disabled]="!profileForm.valid">Submit</button>
+ 
