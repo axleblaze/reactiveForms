@@ -8,7 +8,7 @@
 <label>
   First Name: <br/> <br/>
   <input type="text" formControlName="firstname" placeholder="Only Alphabets">
-  <span *ngIf="!profileForm.controls['firstname'].valid">*</span>
+  <span *ngIf="profileForm.controls['firstname'].touched && !profileForm.controls['firstname'].valid">You forgot to enter your name</span>
  </label>
  </div>
  
@@ -18,7 +18,7 @@
  <label>
   Last Name:<br/> <br/> 
   <input type="text" formControlName="lastname" placeholder="Only Alphabets">
-  <span *ngIf="!profileForm.controls['lastname'].valid">*</span> 
+  <span *ngIf="profileForm.controls['lastname'].touched && !profileForm.controls['lastname'].valid">You forgot to enter your Lastname</span> 
 </label>
 </div>
  
@@ -28,7 +28,7 @@
  <label>
   Email:<br/> <br/>
    <input type="text" formControlName="email" placeholder="example@abc.com">
-   <span *ngIf="!profileForm.controls['email'].valid">*</span>
+   <span *ngIf="profileForm.controls['email'].touched && !profileForm.controls['email'].valid">You forgot to enter your Email</span>
  </label>
  </div>
  
@@ -37,7 +37,7 @@
  <label>
   Gender: <br/> <br/>
   <input type="text" formControlName="gender" placeholder="Either Male/Female">
-  <span *ngIf="!profileForm.controls['gender'].valid">*</span>
+  <span *ngIf="profileForm.controls['gender'].touched && !profileForm.controls['gender'].valid">You forgot to enter your Gender</span>
 </label>
 </div>
 
@@ -47,7 +47,7 @@
  <label>
   Contact Number: <br/> <br/>
   <input type="text" formControlName="contact" placeholder="Only Numbers">
-   <span *ngIf="!profileForm.controls['contact'].valid">*</span>
+   <span *ngIf="profileForm.controls['contact'].touched && !profileForm.controls['contact'].valid">You forgot to enter your Contact Number</span>
 </label>
 </div>
  
@@ -57,7 +57,7 @@
  <label>
   Password: <br/> <br/>
   <input type="password" formControlName="password" placeholder="******">
-  <span *ngIf="!profileForm.controls['password'].valid">*</span> 
+  <span *ngIf="profileForm.controls['password'].touched && !profileForm.controls['password'].valid">You forgot to enter your Password</span> 
 </label>
 </div>
 
@@ -67,7 +67,7 @@
  <label>
   Confirm Password:<br/> <br/> 
   <input type="password" formControlName="confirmpassword" (keyup)="passwordcheck()" placeholder="******">
-  <span *ngIf="!profileForm.controls['confirmpassword'].valid">*</span> 
+  <span *ngIf="profileForm.controls['confirmpassword'].touched && !profileForm.controls['confirmpassword'].valid">Please Enter The Password as above</span> 
 </label>
 </div> 
 
@@ -77,14 +77,15 @@
  <label>
   Employee ID:<br/> <br/>
    <input type="text" formControlName="empid" placeholder="Only Numbers">
-   <span *ngIf="!profileForm.controls['empid'].valid">*</span>
+   <span *ngIf="profileForm.controls['empid'].touched && !profileForm.controls['empid'].valid">You forgot to enter your Employee ID</span>
   </label>
 
 </div>
 <div class="form-group">
 <label>
+  
   <button type="submit" [disabled]="!profileForm.valid" (click)="submitfxn()">Submit</button>
-  <button type="submit" [disabled]="!profileForm.valid" (click)="submitfxn()">Submit</button>
+  
 </label>
 </div>
 
