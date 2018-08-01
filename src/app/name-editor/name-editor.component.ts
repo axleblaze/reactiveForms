@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '../../../node_modules/@angular/router';
+import { FirstserviceService } from "../firstservice.service";
 
 @Component({
   selector: 'app-name-editor',
@@ -9,7 +10,7 @@ import { Router } from '../../../node_modules/@angular/router';
 })
 export class NameEditorComponent implements OnInit {
   
-    profileForm:FormGroup;
+   
 
     passwordcheck(){
       if (this.profileForm.value.password !== this.profileForm.value.confirmpassword) {
@@ -21,11 +22,31 @@ export class NameEditorComponent implements OnInit {
 
 submitfxn()
 {
-  localStorage.setItem("data",JSON.stringify(this.profileForm.value));
+  //localStorage.setItem("data",JSON.stringify(this.profileForm.value));
+  this.FirstserviceService.setData(this.profileForm.value);
   this.route.navigate(["/display"]);
 }
 
-  constructor(private route:Router) {
+onButtonClick(){
+  
+  this.route.navigate(['/edit']);
+}
+
+showpass(){
+this.pass = "text";
+}
+
+hidepass(){
+this.pass = "password";
+}
+
+
+profileForm:FormGroup;
+
+pass = "password";
+
+
+  constructor(private FirstserviceService : FirstserviceService ,private route:Router) {
     
       this.profileForm = new FormGroup({
       
@@ -35,7 +56,7 @@ submitfxn()
       
         email: new FormControl('',[Validators.required , Validators.email]),
       
-        gender : new FormControl('',[Validators.required , Validators.pattern('[a-zA-Z ]*'),Validators.minLength(4),Validators.maxLength(10)]),
+        gender : new FormControl('',[Validators.required , Validators.pattern('[m/f/oM/F/O ]*')]),
       
         contact : new FormControl('',[Validators.required,Validators.pattern('[0-9]*'),Validators.minLength(10),Validators.maxLength(10),]),
       

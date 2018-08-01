@@ -6,6 +6,8 @@ import { NameEditorComponent } from './name-editor/name-editor.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DisplaydataComponent } from './displaydata/displaydata.component';
 import { EditdataComponent } from './editdata/editdata.component';
+import { FirstserviceService } from "./firstservice.service";
+
 
 const routs : Routes =[
  { 
@@ -31,7 +33,7 @@ const routs : Routes =[
     RouterModule.forRoot(routs),
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [FirstserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

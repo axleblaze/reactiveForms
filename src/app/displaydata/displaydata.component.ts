@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '../../../node_modules/@angular/router';
+import { FirstserviceService } from '../firstservice.service';
 @Component({
   selector: 'app-displaydata',
   templateUrl: './displaydata.component.html',
@@ -7,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplaydataComponent implements OnInit {
   user;
-  constructor() { 
-    this.user = JSON.parse(localStorage.getItem('data'));
+  constructor(private route:Router,private service :FirstserviceService , private FirstserviceService : FirstserviceService ,) { 
+    //this.user = JSON.parse(localStorage.getItem('data'));
+    this.user=service.getData();
   }
 
+  editfxn(){
+    this.FirstserviceService.setData(this.profileForm.value);
+    this.route.navigate(["/edit"]);
+
+  }
+  
+  
   ngOnInit() {
   }
 
