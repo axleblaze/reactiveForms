@@ -43,7 +43,7 @@ export class NameEditorComponent implements OnInit {
   profileForm: FormGroup;
   
   //profileform2:FormGroup;
- 
+  //profileform2:FormGroup;
   pass = "password";
 
  
