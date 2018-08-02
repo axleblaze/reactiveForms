@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { NameEditorComponent } from './name-editor/name-editor.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DisplaydataComponent } from './displaydata/displaydata.component';
-import { EditdataComponent } from './editdata/editdata.component';
+
 import { FirstserviceService } from "./firstservice.service";
 
 
@@ -15,17 +15,16 @@ const routs : Routes =[
  },
  { 
   path:'', component : NameEditorComponent
-},
-  {
-   path:'edit' , component : EditdataComponent
- }
+}
+
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     NameEditorComponent,
-    DisplaydataComponent,EditdataComponent,
+    DisplaydataComponent,
+   
     
   ],
   imports: [

@@ -8,15 +8,20 @@ import { FirstserviceService } from '../firstservice.service';
 })
 export class DisplaydataComponent implements OnInit {
   user;
-  constructor(private route:Router,private service :FirstserviceService , private FirstserviceService : FirstserviceService ,) { 
+  constructor(private route:Router , private FirstserviceService : FirstserviceService ,) { 
     //this.user = JSON.parse(localStorage.getItem('data'));
-    this.user=service.getData();
+    this.user=FirstserviceService.getData();
+    
+    
+  
   }
 
+  
+  
   editfxn(){
-    this.FirstserviceService.setData(this.profileForm.value);
-    this.route.navigate(["/edit"]);
-
+    //this.FirstserviceService.setData(this.profileForm.value);
+    this.route.navigate([""]);
+    
   }
   
   
