@@ -10,13 +10,18 @@ import { FirstserviceService } from "../firstservice.service";
 })
 export class NameEditorComponent implements OnInit {
 
+  rightpassword:boolean = false;
 
 
   passwordcheck() {
+
+    console.log("works")
     if (this.profileForm.value.password !== this.profileForm.value.confirmpassword) {
       //console.log("False");
+      this.rightpassword=false;
     } else {
       //console.log("True");
+      this.rightpassword=true;
     }
   }
 
@@ -54,10 +59,12 @@ export class NameEditorComponent implements OnInit {
     
 
    
-   
+   //we can use this method in place of patch value to get the data
+
     if (this.user == undefined) {
       this.user={
-        firstname:''
+        firstname:'',
+  
       }
       console.log(this.user,"when undifine show");
     }
@@ -65,9 +72,11 @@ export class NameEditorComponent implements OnInit {
 
     this.profileForm = new FormGroup({
 
-      firstname: new FormControl(this.user.firstname, [Validators.required, Validators.minLength(4), Validators.pattern('[a-zA-Z ]*')]),
-
-      lastname: new FormControl('', [Validators.required, Validators.minLength(4), Validators.pattern('[a-zA-Z ]*')]),
+       firstname: new FormControl(this.user.firstname, [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
+     
+      //firstname: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
+     
+      lastname: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
 
       email: new FormControl('', [Validators.required, Validators.email, Validators.pattern('^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$')]),
 
@@ -75,9 +84,9 @@ export class NameEditorComponent implements OnInit {
 
       contact: new FormControl('', [Validators.required, Validators.pattern('[0-9]*'), Validators.minLength(10), Validators.maxLength(10),]),
 
-      password: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')] ),
 
-      confirmpassword: new FormControl('', [Validators.required,]),
+      confirmpassword: new FormControl('', [Validators.required,Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')]),
 
       empid: new FormControl('', [Validators.required, Validators.pattern('[0-9]*'), Validators.minLength(4), Validators.maxLength(4),])
 

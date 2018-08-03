@@ -1,14 +1,17 @@
 <div class="complete">
   <form [formGroup]="profileForm" (ngSubmit)='submitfxn()'>
+
     <div class="form-group">
       <label>
         First Name:
       </label>
       <input type="text" formControlName="firstname" placeholder="Only Alphabets" class="form-control">
-      <div class="alert alert-danger" *ngIf="profileForm.controls['firstname'].touched && !profileForm.controls['firstname'].valid">You forgot to enter your name</div>
-
+      <div class="alert alert-success" *ngIf="profileForm.controls['firstname'].touched && profileForm.controls['firstname'].valid">Correct Details Filled </div>
+      <div class="alert alert-danger" *ngIf="profileForm.controls['firstname'].touched && profileForm.controls['firstname'].invalid">
+        <div *ngIf="profileForm.controls['firstname'].errors.required"> You forgot to enter your First Name</div>
+        <div *ngIf="profileForm.controls['firstname'].errors.pattern"> Alphbets Only</div>
+      </div>
     </div>
-
 
 
     <div class="form-group">
@@ -16,8 +19,11 @@
         Last Name:
       </label>
       <input type="text" formControlName="lastname" placeholder="Only Alphabets" class="form-control">
-      <div class="alert alert-danger" *ngIf="profileForm.controls['lastname'].touched && !profileForm.controls['lastname'].valid">You forgot to enter your Lastname</div>
-
+      <div class="alert alert-success" *ngIf="profileForm.controls['lastname'].touched && profileForm.controls['lastname'].valid">Correct Details Filled </div>
+      <div class="alert alert-danger" *ngIf="profileForm.controls['lastname'].touched && profileForm.controls['lastname'].invalid">
+        <div *ngIf="profileForm.controls['lastname'].errors.required">You forgot to enter your Last Name</div>
+        <div *ngIf="profileForm.controls['lastname'].errors.pattern">Alphabets Only</div>
+      </div>
     </div>
 
 
@@ -26,7 +32,11 @@
       <label>
         Email: </label>
       <input type="text" formControlName="email" placeholder="example@abc.com" class="form-control">
-      <div class="alert alert-danger" *ngIf="profileForm.controls['email'].touched && !profileForm.controls['email'].valid">You forgot to enter your Email</div>
+      <div class="alert alert-success" *ngIf="profileForm.controls['email'].touched && profileForm.controls['email'].valid">Correct Details Filled </div>
+      <div class="alert alert-danger" *ngIf="profileForm.controls['email'].touched && profileForm.controls['email'].invalid">
+        <div *ngIf="profileForm.controls['email'].errors.required">You forgot to enter your E-mail</div>
+        <div *ngIf="profileForm.controls['email'].errors.pattern">Follow The Pattern of E-mail</div>
+      </div>
 
     </div>
 
@@ -35,18 +45,24 @@
       <label>
         Gender: </label>
       <input type="text" formControlName="gender" placeholder="Either M/F/O" maxlength="1" class="form-control">
-      <div class="alert alert-danger" *ngIf="profileForm.controls['gender'].touched && !profileForm.controls['gender'].valid">You forgot to enter your Gender</div>
-
+      <div class="alert alert-success" *ngIf="profileForm.controls['gender'].touched && profileForm.controls['gender'].valid">Correct Details Filled</div>
+      <div class="alert alert-danger" *ngIf="profileForm.controls['gender'].touched && profileForm.controls['gender'].invalid">
+        <div *ngIf="profileForm.controls['gender'].errors.required">You forgot to enter your Gender</div>
+        <div *ngIf="profileForm.controls['gender'].errors.pattern">Either M/F/O or m/f/o</div>
+      </div>
     </div>
-
 
 
     <div class="form-group">
       <label>
         Contact Number: </label>
       <input type="text" formControlName="contact" placeholder="Only Numbers" maxlength="10" class="form-control">
-      <div class="alert alert-danger" *ngIf="profileForm.controls['contact'].touched && !profileForm.controls['contact'].valid">You forgot to enter your Contact Number</div>
-
+      <div class="alert alert-success" *ngIf="profileForm.controls['contact'].touched && profileForm.controls['contact'].valid">Correct Details Filled</div>
+      <div class="alert alert-danger" *ngIf="profileForm.controls['contact'].touched && profileForm.controls['contact'].invalid">
+        <div *ngIf="profileForm.controls['contact'].errors.required">You forgot to enter your Contact Number</div>
+        <div *ngIf="profileForm.controls['contact'].errors.pattern">Numbers Only</div>
+     
+      </div>
     </div>
 
 
@@ -58,8 +74,11 @@
       <span class="glyphicon glyphicon-eye-close" (mouseup)="hidepass()" (mousedown)="showpass()"></span>
 
 
-      <div class="alert alert-danger" *ngIf="profileForm.controls['password'].touched && !profileForm.controls['password'].valid">You forgot to enter your Password</div>
-
+      <div class="alert alert-success" *ngIf="profileForm.controls['password'].touched && profileForm.controls['password'].valid">Password meets the Validation</div>
+      <div class="alert alert-danger" *ngIf="profileForm.controls['password'].touched && profileForm.controls['password'].invalid">
+          <div *ngIf="profileForm.controls['password'].errors.required">You forgot to enter the Password</div>
+        <div *ngIf="profileForm.controls['password'].errors.pattern">Follow The Validation - Must Contain (Upper Case , Lower Case , Special Character , Number , Minlength=8)</div>
+      </div>
     </div>
 
 
@@ -68,8 +87,11 @@
       <label>
         Confirm Password:</label>
       <input type="password" formControlName="confirmpassword" (keyup)="passwordcheck()" placeholder="******" class="form-control">
-      <div class="alert alert-danger" *ngIf="profileForm.controls['confirmpassword'].touched && !profileForm.controls['confirmpassword'].valid">Please Enter The Password as above</div>
-
+      <div class="alert alert-success" *ngIf="profileForm.controls['confirmpassword'].touched && profileForm.controls['confirmpassword'].valid">Password meets the Validation</div>
+      <div class="alert alert-danger" *ngIf="profileForm.controls['confirmpassword'].touched && profileForm.controls['confirmpassword'].invalid">
+          <div *ngIf="profileForm.controls['confirmpassword'].errors.required">You forgot to enter the Password</div>
+          <div *ngIf="!rightpassword">Your Password Does not Match </div>
+      </div>
     </div>
 
 
@@ -78,7 +100,11 @@
       <label>
         Employee ID: </label>
       <input type="text" formControlName="empid" placeholder="Only Numbers" maxlength="4" class="form-control">
-      <div class="alert alert-danger" *ngIf="profileForm.controls['empid'].touched && !profileForm.controls['empid'].valid">You forgot to enter your Employee ID</div>
+      <div class="alert alert-success" *ngIf="profileForm.controls['empid'].touched && profileForm.controls['empid'].valid">Correct Details Filled</div>
+      <div class="alert alert-danger" *ngIf="profileForm.controls['empid'].touched && profileForm.controls['empid'].invalid">
+          <div *ngIf="profileForm.controls['empid'].errors.required">You forgot to enter your Employee ID</div>
+          <div *ngIf="profileForm.controls['empid'].errors.pattern">Numbers Only</div>
+        </div>
 
 
     </div>
@@ -86,7 +112,7 @@
       <label>
 
         <!-- <button type="submit" [disabled]="!profileForm.valid" (click)="submitfxn()">Submit</button>-->
-        <button type="submit" [disabled]="!profileForm.valid" class="btn btn-primary">Submit</button>
+        <button type="submit" [disabled]="!profileForm.valid || !rightpassword" class="btn btn-primary">Submit</button>
 
 
       </label>
