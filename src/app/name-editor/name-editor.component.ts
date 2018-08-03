@@ -27,6 +27,8 @@ export class NameEditorComponent implements OnInit {
 
   submitfxn() {
     //localStorage.setItem("data",JSON.stringify(this.profileForm.value));
+    
+    
     this.FirstserviceService.setData(this.profileForm.value);
     this.route.navigate(["/display"]);
   }
@@ -105,10 +107,17 @@ export class NameEditorComponent implements OnInit {
     
 
   ngOnInit() {
-    
+    if(this.route.url==='/edit')
+  {
+    var datashow = this.FirstserviceService.getData()
   
-   
+  this.profileForm.patchValue({
+ firstname:datashow.firstname
+  })
   }
+  
+
+}
       
       
   }

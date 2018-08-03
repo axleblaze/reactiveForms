@@ -61,7 +61,7 @@
       <div class="alert alert-danger" *ngIf="profileForm.controls['contact'].touched && profileForm.controls['contact'].invalid">
         <div *ngIf="profileForm.controls['contact'].errors.required">You forgot to enter your Contact Number</div>
         <div *ngIf="profileForm.controls['contact'].errors.pattern">Numbers Only</div>
-     
+
       </div>
     </div>
 
@@ -76,7 +76,7 @@
 
       <div class="alert alert-success" *ngIf="profileForm.controls['password'].touched && profileForm.controls['password'].valid">Password meets the Validation</div>
       <div class="alert alert-danger" *ngIf="profileForm.controls['password'].touched && profileForm.controls['password'].invalid">
-          <div *ngIf="profileForm.controls['password'].errors.required">You forgot to enter the Password</div>
+        <div *ngIf="profileForm.controls['password'].errors.required">You forgot to enter the Password</div>
         <div *ngIf="profileForm.controls['password'].errors.pattern">Follow The Validation - Must Contain (Upper Case , Lower Case , Special Character , Number , Minlength=8)</div>
       </div>
     </div>
@@ -89,8 +89,8 @@
       <input type="password" formControlName="confirmpassword" (keyup)="passwordcheck()" placeholder="******" class="form-control">
       <div class="alert alert-success" *ngIf="profileForm.controls['confirmpassword'].touched && profileForm.controls['confirmpassword'].valid">Password meets the Validation</div>
       <div class="alert alert-danger" *ngIf="profileForm.controls['confirmpassword'].touched && profileForm.controls['confirmpassword'].invalid">
-          <div *ngIf="profileForm.controls['confirmpassword'].errors.required">You forgot to enter the Password</div>
-          <div *ngIf="!rightpassword">Your Password Does not Match </div>
+        <div *ngIf="profileForm.controls['confirmpassword'].errors.required">You forgot to enter the Password</div>
+        <div *ngIf="!rightpassword">Your Password Does not Match </div>
       </div>
     </div>
 
@@ -102,9 +102,9 @@
       <input type="text" formControlName="empid" placeholder="Only Numbers" maxlength="4" class="form-control">
       <div class="alert alert-success" *ngIf="profileForm.controls['empid'].touched && profileForm.controls['empid'].valid">Correct Details Filled</div>
       <div class="alert alert-danger" *ngIf="profileForm.controls['empid'].touched && profileForm.controls['empid'].invalid">
-          <div *ngIf="profileForm.controls['empid'].errors.required">You forgot to enter your Employee ID</div>
-          <div *ngIf="profileForm.controls['empid'].errors.pattern">Numbers Only</div>
-        </div>
+        <div *ngIf="profileForm.controls['empid'].errors.required">You forgot to enter your Employee ID</div>
+        <div *ngIf="profileForm.controls['empid'].errors.pattern">Numbers Only</div>
+      </div>
 
 
     </div>

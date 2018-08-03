@@ -7,14 +7,23 @@ import { RouterModule, Routes } from '@angular/router';
 import { DisplaydataComponent } from './displaydata/displaydata.component';
 
 import { FirstserviceService } from "./firstservice.service";
-
+import { LoginComponent } from './login/login.component';
+import {AuthService } from './auth.service';
+import {FormsModule} from '@angular/forms'
 
 const routs : Routes =[
  { 
    path:'display', component : DisplaydataComponent
  },
  { 
-  path:'', component : NameEditorComponent
+  path:'', component : NameEditorComponent , canActivate :[AuthService]
+},
+{
+  path:'edit' , component : NameEditorComponent
+},
+{
+  path:'login' , component :  LoginComponent 
+  
 }
 
 ];
@@ -24,15 +33,17 @@ const routs : Routes =[
     AppComponent,
     NameEditorComponent,
     DisplaydataComponent,
+    LoginComponent,
    
     
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routs),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [FirstserviceService],
+  providers: [FirstserviceService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
