@@ -10,6 +10,7 @@ import { FirstserviceService } from "./firstservice.service";
 import { LoginComponent } from './login/login.component';
 import {AuthService } from './auth.service';
 import {FormsModule} from '@angular/forms'
+import{ HttpModule } from '@angular/http';
 
 const routs : Routes =[
  { 
@@ -19,7 +20,7 @@ const routs : Routes =[
   path:'', component : NameEditorComponent , canActivate :[AuthService]
 },
 {
-  path:'edit' , component : NameEditorComponent
+  path:'edit' , component : NameEditorComponent 
 },
 {
   path:'login' , component :  LoginComponent 
@@ -41,7 +42,8 @@ const routs : Routes =[
     BrowserModule,
     RouterModule.forRoot(routs),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers: [FirstserviceService,AuthService],
   bootstrap: [AppComponent]

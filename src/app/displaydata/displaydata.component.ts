@@ -20,7 +20,7 @@ export class DisplaydataComponent implements OnInit {
   
   editfxn(){
     //this.FirstserviceService.setData(this.profileForm.value);
-    this.route.navigate([""]);
+    this.route.navigate(["/edit"]);
     
   }
   

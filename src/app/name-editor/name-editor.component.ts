@@ -63,20 +63,20 @@ export class NameEditorComponent implements OnInit {
    
    //we can use this method in place of patch value to get the data
 
-    if (this.user == undefined) {
-      this.user={
-        firstname:'',
+    // if (this.user == undefined) {
+    //   this.user={
+    //     firstname:'',
   
-      }
-      console.log(this.user,"when undifine show");
-    }
+    //   }
+    //   console.log(this.user,"when undifine show");
+    // }
 
 
     this.profileForm = new FormGroup({
 
-       firstname: new FormControl(this.user.firstname, [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
+     //  firstname: new FormControl(this.user.firstname, [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
      
-      //firstname: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
+      firstname: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
      
       lastname: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
 
@@ -112,7 +112,12 @@ export class NameEditorComponent implements OnInit {
     var datashow = this.FirstserviceService.getData()
   
   this.profileForm.patchValue({
- firstname:datashow.firstname
+
+    firstname:datashow.firstname ,
+    lastname:datashow.lastname ,
+    email:datashow.email,
+    gender:datashow.gender,
+
   })
   }
   

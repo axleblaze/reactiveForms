@@ -10,7 +10,7 @@ export class AuthService implements CanActivate {
  
  
   canActivate() {
-    if ("op"!=localStorage.getItem("username") )
+    if ("op"!=localStorage.getItem("abx") )
    
     //if we have more than one data 
    
